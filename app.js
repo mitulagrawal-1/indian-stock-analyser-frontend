@@ -1,9 +1,4 @@
-// Configuration: Replace with your actual Render API URL string
-const BACKEND_URL = "https://indian-stock-backend-5ncd.onrender.com";
-Here is the complete, updated app.js file. It contains the full logic for triggering the pipeline, updating UI states, parsing the domestic market indicators, and intercepting the precise exception string thrown by the FastAPI layer.
 
-JavaScript
-// Configuration: Linked directly to your live production instance
 const BACKEND_URL = "https://indian-stock-backend-5ncd.onrender.com";
 
 document.querySelectorAll('.sector-btn').forEach(button => {
