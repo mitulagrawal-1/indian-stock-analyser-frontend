@@ -38,7 +38,9 @@ document.querySelectorAll('.sector-btn').forEach(button => {
             
         } catch (error) {
             console.error('Error during execution:', error);
-            alert('Failed to process sector data. Check console for details.');
+            // Convert the result object to text so you can read it in the alert box
+            const responsePreview = result ? JSON.stringify(result) : 'No response body';
+            alert(`Pipeline Error: ${error.message}\n\nBackend sent: ${responsePreview}`);
             document.getElementById('placeholder-text').classList.remove('hidden');
         } finally {
             document.getElementById('loader').classList.add('hidden');
