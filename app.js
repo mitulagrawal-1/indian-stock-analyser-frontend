@@ -1,5 +1,5 @@
 // Configuration: Replace with your actual Render API URL string
-const BACKEND_URL = "https://indian-stock-analyser.onrender.com";
+const BACKEND_URL = "https://indian-stock-backend-5ncd.onrender.com";
 
 document.querySelectorAll('.sector-btn').forEach(button => {
     button.addEventListener('click', async (e) => {
