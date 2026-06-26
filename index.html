@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Indian Stock Sector Analyser</title>
+    <!-- Tailwind CSS CDN for clean styling -->
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-slate-900 text-slate-100 min-h-screen font-sans">
+
+    <div class="max-w-4xl mx-auto px-4 py-8">
+        <header class="border-b border-slate-800 pb-6 mb-8">
+            <h1 class="text-3xl font-bold tracking-tight text-white">Indian Stock Sector Analyser</h1>
+            <p class="text-slate-400 mt-2">Real-time market tracking and sentiment evaluation pipeline.</p>
+        </header>
+
+        <main class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <!-- Controls Section -->
+            <div class="md:col-span-1 bg-slate-800 p-6 rounded-xl border border-slate-700 h-fit">
+                <h2 class="text-lg font-semibold text-white mb-4">Select Sector</h2>
+                <div class="space-y-2">
+                    <button class="sector-btn w-full text-left px-4 py-3 rounded-lg bg-slate-700 hover:bg-slate-600 transition font-medium" data-sector="Banking">NSE Banking</button>
+                    <button class="sector-btn w-full text-left px-4 py-3 rounded-lg bg-slate-700 hover:bg-slate-600 transition font-medium" data-sector="IT">NSE IT</button>
+                    <button class="sector-btn w-full text-left px-4 py-3 rounded-lg bg-slate-700 hover:bg-slate-600 transition font-medium" data-sector="Auto">NSE Auto</button>
+                    <button class="sector-btn w-full text-left px-4 py-3 rounded-lg bg-slate-700 hover:bg-slate-600 transition font-medium" data-sector="Pharma">NSE Pharma</button>
+                    <button class="sector-btn w-full text-left px-4 py-3 rounded-lg bg-slate-700 hover:bg-slate-600 transition font-medium" data-sector="FMCG">NSE FMCG</button>
+                </div>
+            </div>
+
+            <!-- Results Section -->
+            <div class="md:col-span-2 space-y-6">
+                <!-- Loader Placeholder -->
+                <div id="loader" class="hidden text-center py-12">
+                    <div class="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-500 mx-auto mb-4"></div>
+                    <p class="text-slate-400">Scraping Indian financial media and running sentiment metrics...</p>
+                </div>
+
+                <!-- Initial State Message -->
+                <div id="placeholder-text" class="text-center py-12 border border-dashed border-slate-700 rounded-xl">
+                    <p class="text-slate-500">Select a market sector to execute the pipeline.</p>
+                </div>
+
+                <!-- Data Display Dashboard -->
+                <div id="dashboard" class="hidden space-y-6">
+                    <!-- Metrics Row -->
+                    <div class="grid grid-cols-2 gap-4">
+                        <div class="bg-slate-800 p-5 rounded-xl border border-slate-700">
+                            <span class="text-xs font-semibold uppercase tracking-wider text-slate-400 block">Closing Price</span>
+                            <span id="metric-price" class="text-2xl font-bold text-white block mt-1">--</span>
+                            <span id="metric-change" class="text-sm font-medium mt-1 block">--</span>
+                        </div>
+                        <div class="bg-slate-800 p-5 rounded-xl border border-slate-700">
+                            <span class="text-xs font-semibold uppercase tracking-wider text-slate-400 block">AI Sentiment Index</span>
+                            <span id="metric-sentiment" class="text-2xl font-bold text-white block mt-1">--</span>
+                            <span id="metric-score" class="text-sm text-slate-400 mt-1 block">Score: --</span>
+                        </div>
+                    </div>
+
+                    <!-- Headlines Analysed -->
+                    <div class="bg-slate-800 p-6 rounded-xl border border-slate-700">
+                        <h3 class="text-sm font-semibold uppercase tracking-wider text-slate-400 mb-4">Evaluated News Matrix</h3>
+                        <ul id="headlines-list" class="space-y-3 divide-y divide-slate-700">
+                            <!-- Injected dynamically -->
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
